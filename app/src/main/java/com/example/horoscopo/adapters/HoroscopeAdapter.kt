@@ -37,4 +37,8 @@ class HoroscopeViewHolder(view: View): RecyclerView.ViewHolder(view){
         datesTextView.setText(horoscope.dates)
         symbolImageView.setImageResource(horoscope.image)
     }
+    fun updateData(newItems: List<Horoscope>){
+        items = newItems
+        notifyDataSetChanged()
+    }
 }

@@ -1,6 +1,9 @@
 package com.example.horoscopo.activities
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,6 +18,7 @@ import com.example.horoscopo.data.HoroscopeProvider
 class ListActivity : AppCompatActivity() {
     lateinit var horoscopeList: List<Horoscope>
     lateinit var recyclerView: RecyclerView
+    lateinit var adapter: HoroscopeAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +32,25 @@ class ListActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.recyclerView)
         horoscopeList = HoroscopeProvider.findAll()
+        adapter = HoroscopeAdapter(horoscopeList)
 
-        val adapter = HoroscopeAdapter(horoscopeList)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false)
+
+        val searchEditText: EditText = findViewById(R.id.searchEditText)
+        searchEditText.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                //TODO("Not yet implemented")
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                //TODO("Not yet implemented")
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val filteredList = HoroscopeProvider.searchHoroscopes(s.toString())
+                adapter.updateData(filteredList)
+            }
+        })
     }
 }

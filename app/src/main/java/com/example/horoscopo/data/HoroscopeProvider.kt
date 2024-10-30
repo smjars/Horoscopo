@@ -86,5 +86,9 @@ class HoroscopeProvider {
         fun findById(id: String): Horoscope {
             return horoscopeList.find { it.id == id }!!
         }
+
+        fun searchHoroscopes(query: String): List<Horoscope> {
+            return horoscopeList.filter { it.id.contains(query, ignoreCase = true) }
+        }
     }
 }
