@@ -1,5 +1,6 @@
 package com.example.horoscopo.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -32,7 +33,12 @@ class ListActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.recyclerView)
         horoscopeList = HoroscopeProvider.findAll()
-        adapter = HoroscopeAdapter(horoscopeList)
+        adapter = HoroscopeAdapter(horoscopeList) {
+            horoscope ->
+            val intent = Intent(this, HoroscopeDetailActivity::class.java).apply {
+                putExtra("HOROSCOPE_ID", horoscope.id)
+            }
+        }
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false)

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.horoscopo.R
 import com.example.horoscopo.data.Horoscope
 
-class HoroscopeAdapter(var items: List<Horoscope>): RecyclerView.Adapter<HoroscopeViewHolder>() {
+class HoroscopeAdapter(private var items: List<Horoscope>, private val onClick: (Horoscope)-> Unit): RecyclerView.Adapter<HoroscopeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HoroscopeViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_horoscope,parent,false)
@@ -23,6 +23,9 @@ class HoroscopeAdapter(var items: List<Horoscope>): RecyclerView.Adapter<Horosco
     override fun onBindViewHolder(holder: HoroscopeViewHolder, position: Int) {
         val horoscope = items[position]
         holder.render(horoscope)
+        holder.itemView.setOnClickListener {
+            onClick(horoscope)
+        }
     }
     fun updateData(newItems: List<Horoscope>){
         items = newItems
