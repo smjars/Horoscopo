@@ -7,6 +7,7 @@ import com.example.horoscopo.data.HoroscopeProvider
 import com.example.horoscopo.data.Horoscope
 import android.widget.TextView
 import android.widget.ImageView
+import android.widget.Button
 
 class HoroscopeDetailActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,9 +20,14 @@ class HoroscopeDetailActivity : AppCompatActivity(){
         val nameTextView: TextView = findViewById(R.id.nameTextView)
         val datesTextView: TextView = findViewById(R.id.datesTextView)
         val symbolImageView: ImageView = findViewById(R.id.symbolImageView)
+        val backButton: Button = findViewById(R.id.backButton)
 
         nameTextView.setText(horoscope.name)
         datesTextView.setText(horoscope.dates)
         symbolImageView.setImageResource(horoscope.image)
+
+        backButton.setOnClickListener{
+            finish()
+        }
     }
 }

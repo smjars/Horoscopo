@@ -33,11 +33,11 @@ class ListActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.recyclerView)
         horoscopeList = HoroscopeProvider.findAll()
-        adapter = HoroscopeAdapter(horoscopeList) {
-            horoscope ->
+        adapter = HoroscopeAdapter(horoscopeList) { horoscope ->
             val intent = Intent(this, HoroscopeDetailActivity::class.java).apply {
                 putExtra("HOROSCOPE_ID", horoscope.id)
             }
+            startActivity(intent)
         }
 
         recyclerView.adapter = adapter
