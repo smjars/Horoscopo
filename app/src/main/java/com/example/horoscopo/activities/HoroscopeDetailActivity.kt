@@ -21,11 +21,13 @@ class HoroscopeDetailActivity : AppCompatActivity(){
         val nameTextView: TextView = findViewById(R.id.nameTextView)
         val datesTextView: TextView = findViewById(R.id.datesTextView)
         val symbolImageView: ImageView = findViewById(R.id.symbolImageView)
+        val messageTextView: TextView = findViewById(R.id.messageTextView)
         val backButton: Button = findViewById(R.id.backButton)
 
         nameTextView.setText(horoscope.name)
         datesTextView.setText(horoscope.dates)
         symbolImageView.setImageResource(horoscope.image)
+        messageTextView.text = horoscope.message
 
         //aplicar animacion
         val animation = AnimationUtils.loadAnimation(this, R.anim.scale_up)

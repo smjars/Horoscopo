@@ -25,4 +25,18 @@
     <string name="horoscope_date_capricorn">December 22 to January 19</string>
     <string name="horoscope_date_aquarius">January 20 to February 18</string>
     <string name="horoscope_date_pisces">February 19 to March 20</string>
+
+    <string name="horoscope_message_aries">Aries: Te enfrentarás a un problema técnico inesperado, pero lo resolverás con tu usual tenacidad. ¡Sigue adelante!</string>
+    <string name="horoscope_message_tauro">Tauro: Aprovecha la semana para actualizar tus dispositivos y garantizar que todo funcione a la perfección.</string>
+    <string name="horoscope_message_geminis">Géminis: Descubrirás una nueva red social que cambiará tu manera de conectarte con los demás. ¡Explora!</string>
+    <string name="horoscope_message_cancer">Cáncer: Una sorpresa tecnológica te llegará en forma de regalo, algo que hacía falta en tu vida digital.</string>
+    <string name="horoscope_message_leo">Leo: Tu carisma en las videoconferencias atraerá nuevas oportunidades laborales. Sé tú mismo.</string>
+    <string name="horoscope_message_virgo">Virgo: Tu habilidad para organizar archivos será la clave para un proyecto exitoso. ¡Ordena tu escritorio!</string>
+    <string name="horoscope_message_libra">Libra: Un nuevo gadget se convertirá en tu compañero inseparable. Haz espacio para lo nuevo.</string>
+    <string name="horoscope_message_escorpio">Escorpio: Profundizarás en la ciberseguridad, protegiendo tu mundo digital como nunca antes.</string>
+    <string name="horoscope_message_sagitario">Sagitario: Una oportunidad de viajar al extranjero podría venir acompañada de nuevas herramientas tecnológicas.</string>
+    <string name="horoscope_message_capricornio">Capricornio: Tu ética de trabajo impecable será reconocida a través de un avance en tu software favorito.</string>
+    <string name="horoscope_message_acuario">Acuario: Un webinar te inspirará a innovar en tus proyectos tecnológicos.</string>
+    <string name="horoscope_message_piscis">Piscis: La creatividad fluirá mientras descubres aplicaciones que potencian tu arte y habilidades.</string>
+
 </resources>

@@ -1,5 +1,5 @@
 package com.example.horoscopo.data
 
-class Horoscope (val id: String,val name: Int, val dates: Int, val image: Int ) {
+class Horoscope(val id: String, val name: Int, val dates: Int, val image: Int, val message: Int) {
 
 }
