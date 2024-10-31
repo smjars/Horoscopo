@@ -27,7 +27,7 @@ class HoroscopeDetailActivity : AppCompatActivity(){
         nameTextView.setText(horoscope.name)
         datesTextView.setText(horoscope.dates)
         symbolImageView.setImageResource(horoscope.image)
-        messageTextView.text = horoscope.message
+        messageTextView.text = getString(horoscope.message)
 
         //aplicar animacion
         val animation = AnimationUtils.loadAnimation(this, R.anim.scale_up)
