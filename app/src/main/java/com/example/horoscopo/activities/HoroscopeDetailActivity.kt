@@ -1,6 +1,7 @@
 package com.example.horoscopo.activities
 
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.example.horoscopo.R
 import com.example.horoscopo.data.HoroscopeProvider
@@ -25,6 +26,10 @@ class HoroscopeDetailActivity : AppCompatActivity(){
         nameTextView.setText(horoscope.name)
         datesTextView.setText(horoscope.dates)
         symbolImageView.setImageResource(horoscope.image)
+
+        //aplicar animacion
+        val animation = AnimationUtils.loadAnimation(this, R.anim.scale_up)
+        symbolImageView.startAnimation(animation)
 
         backButton.setOnClickListener{
             finish()
