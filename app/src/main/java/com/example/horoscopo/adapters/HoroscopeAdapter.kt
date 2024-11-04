@@ -17,7 +17,8 @@ class HoroscopeAdapter(
 ) : RecyclerView.Adapter<HoroscopeAdapter.HoroscopeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HoroscopeViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_horoscope, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_horoscope, parent, false)
         return HoroscopeViewHolder(view)
     }
 
@@ -34,31 +35,40 @@ class HoroscopeAdapter(
         private val imageView: ImageView = itemView.findViewById(R.id.imageView)
         private val favoriteButton: ImageButton = itemView.findViewById(R.id.favoriteButton)
 
-        fun bind(horoscope: Horoscope, onItemClicked: (Horoscope) -> Unit, onFavoriteClicked: (Horoscope) -> Unit) {
+        fun bind(
+            horoscope: Horoscope,
+            onItemClicked: (Horoscope) -> Unit,
+            onFavoriteClicked: (Horoscope) -> Unit
+        ) {
             nameTextView.text = itemView.context.getString(horoscope.name)
             dateTextView.text = itemView.context.getString(horoscope.dates)
             imageView.setImageResource(horoscope.image)
+            favoriteButton.setImageResource(
+                if (horoscope.isFavorite) R.drawable.corazon_lleno else R.drawable.corazon_vacio
+            )
             itemView.setOnClickListener { onItemClicked(horoscope) }
             favoriteButton.setOnClickListener {
                 onFavoriteClicked(horoscope)
-                favoriteButton.setImageResource(R.drawable.corazon_lleno)
+                favoriteButton.setImageResource(
+                    if (horoscope.isFavorite) R.drawable.corazon_lleno else R.drawable.corazon_vacio
+                )
             }
         }
-    }
 
-    fun moveToFirstPosition(horoscope: Horoscope) {
-        val index = horoscopes.indexOf(horoscope)
-        if (index > -1) {
-            horoscopes.removeAt(index)
-            horoscopes.add(0, horoscope)
-            //notifyItemMoved(index, 0)
+        fun moveToFirstPosition(horoscope: Horoscope) {
+            val index = horoscopes.indexOf(horoscope)
+            if (index > -1) {
+                horoscopes.removeAt(index)
+                horoscopes.add(0, horoscope)
+                //notifyItemMoved(index, 0)
+                notifyDataSetChanged()
+            }
+        }
+
+        fun updateData(newHoroscopes: List<Horoscope>) {
+            horoscopes.clear()
+            horoscopes.addAll(newHoroscopes)
             notifyDataSetChanged()
         }
-    }
-
-    fun updateData(newHoroscopes: List<Horoscope>) {
-        horoscopes.clear()
-        horoscopes.addAll(newHoroscopes)
-        notifyDataSetChanged()
     }
 }

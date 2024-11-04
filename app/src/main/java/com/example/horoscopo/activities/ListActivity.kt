@@ -41,8 +41,13 @@ class ListActivity : AppCompatActivity() {
                 startActivity(intent)
             },
             onFavoriteClicked = { horoscope ->
+                horoscope.isFavorite = !horoscope.isFavorite
                 horoscopeList.remove(horoscope)
-                horoscopeList.add(0, horoscope)
+                if (horoscope.isFavorite) {
+                    horoscopeList.add(0, horoscope)
+                } else {
+                    horoscopeList.add(horoscope)
+                }
                 adapter.notifyDataSetChanged()
             }
         )
