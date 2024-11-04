@@ -51,7 +51,8 @@ class HoroscopeAdapter(
         if (index > -1) {
             horoscopes.removeAt(index)
             horoscopes.add(0, horoscope)
-            notifyItemMoved(index, 0)
+            //notifyItemMoved(index, 0)
+            notifyDataSetChanged()
         }
     }
 
