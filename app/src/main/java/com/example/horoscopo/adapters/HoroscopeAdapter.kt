@@ -35,13 +35,12 @@ class HoroscopeAdapter(
         private val favoriteButton: ImageButton = itemView.findViewById(R.id.favoriteButton)
 
         fun bind(horoscope: Horoscope, onItemClicked: (Horoscope) -> Unit, onFavoriteClicked: (Horoscope) -> Unit) {
-            nameTextView.text = horoscope.name.toString()
-            dateTextView.text = horoscope.dates.toString()
+            nameTextView.text = itemView.context.getString(horoscope.name)
+            dateTextView.text = itemView.context.getString(horoscope.dates)
             imageView.setImageResource(horoscope.image)
             itemView.setOnClickListener { onItemClicked(horoscope) }
             favoriteButton.setOnClickListener {
                 onFavoriteClicked(horoscope)
-                // Cambiar el icono a un corazón lleno
                 favoriteButton.setImageResource(R.drawable.corazon_lleno)
             }
         }
@@ -54,5 +53,11 @@ class HoroscopeAdapter(
             horoscopes.add(0, horoscope)
             notifyItemMoved(index, 0)
         }
+    }
+
+    fun updateData(newHoroscopes: List<Horoscope>) {
+        horoscopes.clear()
+        horoscopes.addAll(newHoroscopes)
+        notifyDataSetChanged()
     }
 }

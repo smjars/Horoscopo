@@ -26,8 +26,8 @@ class HoroscopeDetailActivity : AppCompatActivity(){
         val messageTextView: TextView = findViewById(R.id.messageTextView)
         val backButton: Button = findViewById(R.id.backButton)
 
-        nameTextView.setText(horoscope.name)
-        datesTextView.setText(horoscope.dates)
+        nameTextView.setText(getString(horoscope.name))
+        datesTextView.setText(getString(horoscope.dates))
         symbolImageView.setImageResource(horoscope.image)
         messageTextView.text = getString(horoscope.message)
 
