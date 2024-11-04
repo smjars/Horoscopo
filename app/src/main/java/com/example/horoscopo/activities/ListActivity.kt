@@ -17,12 +17,12 @@ import com.example.horoscopo.data.Horoscope
 import com.example.horoscopo.data.HoroscopeProvider
 
 class ListActivity : AppCompatActivity() {
-    lateinit var horoscopeList: List<Horoscope>
-    lateinit var recyclerView: RecyclerView
-    lateinit var adapter: HoroscopeAdapter
+    private lateinit var horoscopeList: MutableList<Horoscope>
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: HoroscopeAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        super.onCreateState(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_list)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -32,25 +32,30 @@ class ListActivity : AppCompatActivity() {
         }
 
         recyclerView = findViewById(R.id.recyclerView)
-        horoscopeList = HoroscopeProvider.findAll()
-        adapter = HoroscopeAdapter(horoscopeList) { horoscope ->
-            val intent = Intent(this, HoroscopeDetailActivity::class.java).apply {
-                putExtra("HOROSCOPE_ID", horoscope.id)
+        horoscopeList = HoroscopeProvider.findAll().toMutableList()
+        adapter = HoroscopeAdapter(horoscopeList,
+            onItemClicked = { horoscope ->
+                val intent = Intent(this, HoroscopeDetailActivity::class.java).apply {
+                    putExtra("HOROSCOPE_ID", horoscope.id)
+                }
+                startActivity(intent)
+            },
+            onFavoriteClicked = { horoscope ->
+                adapter.moveToFirstPosition(horoscope)
             }
-            startActivity(intent)
-        }
+        )
 
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false)
+        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         val searchEditText: EditText = findViewById(R.id.searchEditText)
         searchEditText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                //TODO("Not yet implemented")
+                // No se usa
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                //TODO("Not yet implemented")
+                // No se usa
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {

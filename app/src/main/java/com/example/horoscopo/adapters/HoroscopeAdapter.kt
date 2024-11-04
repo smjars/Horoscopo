@@ -3,45 +3,56 @@ package com.example.horoscopo.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.horoscopo.R
 import com.example.horoscopo.data.Horoscope
 
-class HoroscopeAdapter(private var items: List<Horoscope>, private val onClick: (Horoscope)-> Unit): RecyclerView.Adapter<HoroscopeViewHolder>() {
+class HoroscopeAdapter(
+    private val horoscopes: MutableList<Horoscope>,
+    private val onItemClicked: (Horoscope) -> Unit,
+    private val onFavoriteClicked: (Horoscope) -> Unit
+) : RecyclerView.Adapter<HoroscopeAdapter.HoroscopeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HoroscopeViewHolder {
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_horoscope,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_horoscope, parent, false)
         return HoroscopeViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return items.size
+    override fun onBindViewHolder(holder: HoroscopeViewHolder, position: Int) {
+        val horoscope = horoscopes[position]
+        holder.bind(horoscope, onItemClicked, onFavoriteClicked)
     }
 
-    override fun onBindViewHolder(holder: HoroscopeViewHolder, position: Int) {
-        val horoscope = items[position]
-        holder.render(horoscope)
-        holder.itemView.setOnClickListener {
-            onClick(horoscope)
+    override fun getItemCount() = horoscopes.size
+
+    inner class HoroscopeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
+        private val dateTextView: TextView = itemView.findViewById(R.id.dateTextView)
+        private val imageView: ImageView = itemView.findViewById(R.id.imageView)
+        private val favoriteButton: ImageButton = itemView.findViewById(R.id.favoriteButton)
+
+        fun bind(horoscope: Horoscope, onItemClicked: (Horoscope) -> Unit, onFavoriteClicked: (Horoscope) -> Unit) {
+            nameTextView.text = horoscope.name.toString()
+            dateTextView.text = horoscope.dates.toString()
+            imageView.setImageResource(horoscope.image)
+            itemView.setOnClickListener { onItemClicked(horoscope) }
+            favoriteButton.setOnClickListener {
+                onFavoriteClicked(horoscope)
+                // Cambiar el icono a un corazón lleno
+                favoriteButton.setImageResource(R.drawable.corazon_lleno)
+            }
         }
     }
-    fun updateData(newItems: List<Horoscope>){
-        items = newItems
-        notifyDataSetChanged()
+
+    fun moveToFirstPosition(horoscope: Horoscope) {
+        val index = horoscopes.indexOf(horoscope)
+        if (index > -1) {
+            horoscopes.removeAt(index)
+            horoscopes.add(0, horoscope)
+            notifyItemMoved(index, 0)
+        }
     }
-}
-
-class HoroscopeViewHolder(view: View): RecyclerView.ViewHolder(view){
-    var nameTextView: TextView = view.findViewById(R.id.nameTextView)
-    var datesTextView: TextView = view.findViewById(R.id.dateTextView)
-    var symbolImageView: ImageView = view.findViewById(R.id.imageView)
-
-    fun render(horoscope: Horoscope){
-        nameTextView.setText(horoscope.name)
-        datesTextView.setText(horoscope.dates)
-        symbolImageView.setImageResource(horoscope.image)
-    }
-
 }

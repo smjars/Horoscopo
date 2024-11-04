@@ -1,6 +1,8 @@
 package com.example.horoscopo.activities
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.example.horoscopo.R
@@ -35,6 +37,23 @@ class HoroscopeDetailActivity : AppCompatActivity(){
 
         backButton.setOnClickListener{
             finish()
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_detail_activity, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) { //hace lo que quiero
+            R.id.menu_favorite -> {
+                println("Menu favorito")
+                return true
+            }
+            else -> {
+                return super.onOptionsItemSelected(item) //si no vuelve a la funcionalidad normal. aunque parece que no hace nada...
+            }
         }
     }
 }
