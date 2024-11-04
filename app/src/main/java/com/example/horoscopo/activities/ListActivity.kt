@@ -22,7 +22,7 @@ class ListActivity : AppCompatActivity() {
     private lateinit var adapter: HoroscopeAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreateState(savedInstanceState)
+        super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_list)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
