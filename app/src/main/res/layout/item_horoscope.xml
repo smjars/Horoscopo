@@ -6,10 +6,12 @@
 
     <ImageButton
         android:id="@+id/favoriteButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:scaleType="fitCenter"
+        android:layout_gravity="center"
         android:src="@drawable/corazon_vacio"
+        android:backgroundTint="@color/white"
         android:contentDescription="@string/add_to_favorites"
         />
 

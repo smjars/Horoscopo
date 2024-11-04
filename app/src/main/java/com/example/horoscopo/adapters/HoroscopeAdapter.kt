@@ -65,10 +65,10 @@ class HoroscopeAdapter(
             }
         }
 
-        fun updateData(newHoroscopes: List<Horoscope>) {
-            horoscopes.clear()
-            horoscopes.addAll(newHoroscopes)
-            notifyDataSetChanged()
-        }
+    }
+    fun updateData(newHoroscopes: List<Horoscope>) {
+        horoscopes.clear()
+        horoscopes.addAll(newHoroscopes)
+        notifyDataSetChanged()
     }
 }
