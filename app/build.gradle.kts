@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.horoscopo"
-    compileSdk = 34
+    namespace = "com.example.todolist"
+    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.horoscopo"
+        applicationId = "com.example.todolist"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -33,9 +33,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
+    implementation(libs.androidx.sqlite)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
