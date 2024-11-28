@@ -1,17 +1,17 @@
-package com.example.event_management.helper
+package com.example.event_management.database
 
-import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.content.ContentValues
+import android.database.Cursor
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
         private const val DATABASE_VERSION = 1
-        private const val DATABASE_NAME = "ExampleDB"
-        private const val TABLE_NAME = "ExampleTable"
+        private const val DATABASE_NAME = "EventManagementDB"
+        private const val TABLE_NAME = "EventTable"
         private const val COLUMN_ID = "id"
         private const val COLUMN_NAME = "name"
     }
@@ -28,7 +28,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         onCreate(db)
     }
 
-    fun addRecord(name: String) {
+    fun addEvent(name: String) {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COLUMN_NAME, name)
@@ -36,7 +36,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.close()
     }
 
-    fun getAllRecords(): Cursor {
+    fun getAllEvents(): Cursor {
         val db = this.readableDatabase
         return db.rawQuery("SELECT * FROM $TABLE_NAME", null)
     }
