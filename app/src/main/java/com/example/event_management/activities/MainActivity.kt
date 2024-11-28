@@ -89,10 +89,6 @@ class MainActivity : AppCompatActivity() {
                 startCreateItemActivity()
                 true
             }
-            R.id.action_settings -> {
-                Toast.makeText(this, "Configuración Clickeada", Toast.LENGTH_SHORT).show()
-                true
-            }
             R.id.action_login -> {
                 openLoginActivity()
                 true
