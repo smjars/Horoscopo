@@ -47,6 +47,8 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
+    implementation ("androidx.sqlite:sqlite:2.1.0")
+
     implementation ("com.google.code.gson:gson:2.8.8")
 
     implementation("androidx.core:core-ktx:1.13.1")
