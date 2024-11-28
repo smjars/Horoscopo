@@ -1,5 +1,6 @@
 package com.example.event_management.activities
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -16,43 +17,23 @@ import com.example.event_management.adapters.ItemAdapter
 import com.example.event_management.databinding.ActivityMainBinding
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import android.database.Cursor
-import com.example.event_management.database.DatabaseHelper
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter: ItemAdapter
     private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var dbHelper: DatabaseHelper
 
     private val itemList = mutableListOf<String>()
 
     private lateinit var createItemLauncher: ActivityResultLauncher<Intent>
     private lateinit var editItemLauncher: ActivityResultLauncher<Intent>
 
+    @SuppressLint("Range")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        dbHelper = DatabaseHelper(this)
-
-        binding.btnAdd.setOnClickListener {
-            val name = binding.etName.text.toString()
-            dbHelper.addEvent(name)
-            Toast.makeText(this, "Evento Agregado", Toast.LENGTH_SHORT).show()
-        }
-
-        binding.btnView.setOnClickListener {
-            val cursor = dbHelper.getAllEvents()
-            if (cursor.moveToFirst()) {
-                do {
-                    val name = cursor.getString(cursor.getColumnIndex("name"))
-                    Toast.makeText(this, "Evento: $name", Toast.LENGTH_SHORT).show()
-                } while (cursor.moveToNext())
-            }
-        }
 
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 

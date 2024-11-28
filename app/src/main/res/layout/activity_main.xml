@@ -8,24 +8,6 @@
     android:gravity="center"
     android:background="@color/white">
 
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Event Name"/>
-
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Event"/>
-
-    <Button
-        android:id="@+id/btnView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="View Events"/>
-
     <ImageView
         android:id="@+id/logoCompany"
         android:layout_width="120dp"
