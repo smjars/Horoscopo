@@ -24,6 +24,10 @@ Permite crear, modificar y eliminar eventos, que se guardan en base de datos loc
  - Implementar sistema de sesión mediante SharedPreferences: Login ⭐
  - Base de datos SQlite para almacenar y gestionar datos relevantes de la aplicación: Eventos ⭐
  - Uitlizar RecyclerView para mostar una lista y capturar un evento de click en cada elemento: Eventos ⭐ Editar ⭐ Eliminar ⭐
+ - Investigar y usar TextField: En el formulario y al crear los eventos ⭐
+ - Usar ViewBinding en vez de findViewById(resId: Int): Listo ⭐
+ - Mostrar un menú en la AppBar (barra superior): Listo ⭐
+ - Internacionalización (un idioma es suficiente): Listo ⭐
 
 ## Tech Stack
 
