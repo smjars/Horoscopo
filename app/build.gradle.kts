@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.efficiency_in_event_management"
+    namespace = "com.example.event_management"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.efficiency_in_event_management"
+        applicationId = "com.example.event_management"
         minSdk = 26
         targetSdk = 34
         versionCode = 1

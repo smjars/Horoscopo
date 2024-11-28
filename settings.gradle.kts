@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Efficiency_in_Event_Management"
+rootProject.name = "Event_Management"
 include(":app")

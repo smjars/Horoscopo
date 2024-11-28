@@ -1,9 +1,9 @@
-    package com.example.efficiency_in_event_management.adapters
+    package com.example.event_management.adapters
 
     import android.view.LayoutInflater
     import android.view.ViewGroup
     import androidx.recyclerview.widget.RecyclerView
-    import com.example.efficiency_in_event_management.databinding.ActivityItemLayoutBinding
+    import com.example.event_management.databinding.ActivityItemLayoutBinding
 
     class ItemAdapter(
         private val itemList: List<String>,

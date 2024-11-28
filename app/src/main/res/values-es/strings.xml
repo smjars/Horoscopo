@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Eficiencia en la Gestión de eventos</string>
+    <string name="app_name">Gestión de Eventos</string>
     <string name="add_item">Añadir elemento</string>
     <string name="settings">Configuración</string>
+    <string name="login" >Iniciar sesión</string>
+    <string name="logout" >Cerrar sesión</string>
+    <string name="hint_user" >Usuario</string>
+    <string name="hint_pass" >Contraseña</string>
+    <string name="invalid_login" >Sesión</string>
+    <string name="invalid_credentials" >Credenciales Inválidas</string>
 </resources>

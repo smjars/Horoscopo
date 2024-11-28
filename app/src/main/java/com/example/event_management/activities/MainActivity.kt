@@ -1,4 +1,4 @@
-package com.example.efficiency_in_event_management.activities
+package com.example.event_management.activities
 
 import android.content.Context
 import android.content.Intent
@@ -11,9 +11,9 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.efficiency_in_event_management.R
-import com.example.efficiency_in_event_management.adapters.ItemAdapter
-import com.example.efficiency_in_event_management.databinding.ActivityMainBinding
+import com.example.event_management.R
+import com.example.event_management.adapters.ItemAdapter
+import com.example.event_management.databinding.ActivityMainBinding
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                     itemList.add(it)
                     saveItems()
                     adapter.notifyItemInserted(itemList.size - 1)
-                    Toast.makeText(this, "New item added", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Nuevo Evento Agregado", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                         itemList[index] = updatedItem
                         saveItems()
                         adapter.notifyItemChanged(index)
-                        Toast.makeText(this, "Item updated", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Evento Actualizado", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.action_settings -> {
-                Toast.makeText(this, "Settings clicked", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Configuración Clickeada", Toast.LENGTH_SHORT).show()
                 true
             }
             R.id.action_login -> {
@@ -149,7 +149,7 @@ class MainActivity : AppCompatActivity() {
         itemList.removeAt(position)
         saveItems()
         adapter.notifyItemRemoved(position)
-        Toast.makeText(this, "Item deleted", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Eliminado", Toast.LENGTH_SHORT).show()
     }
 
     private fun saveItems() {

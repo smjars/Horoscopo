@@ -1,11 +1,11 @@
-package com.example.efficiency_in_event_management.activities
+package com.example.event_management.activities
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.efficiency_in_event_management.databinding.ActivityItemBinding
+import com.example.event_management.databinding.ActivityItemBinding
 
 class CreateItemActivity : AppCompatActivity() {
 
@@ -23,9 +23,9 @@ class CreateItemActivity : AppCompatActivity() {
                 resultIntent.putExtra("NEW_ITEM", newItem)
                 setResult(Activity.RESULT_OK, resultIntent)
                 finish()
-                Toast.makeText(this, "Saved element", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Evento Guardado", Toast.LENGTH_SHORT).show()
             } else {
-                binding.etNewItem.error = "Task cannot be empty"
+                binding.etNewItem.error = "La tarea no puede estar vacia"
             }
         }
     }

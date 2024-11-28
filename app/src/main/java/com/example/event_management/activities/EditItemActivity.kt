@@ -1,10 +1,10 @@
-package com.example.efficiency_in_event_management.activities
+package com.example.event_management.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.efficiency_in_event_management.databinding.ActivityEditItemBinding
+import com.example.event_management.databinding.ActivityEditItemBinding
 
 class EditItemActivity : AppCompatActivity() {
 
@@ -26,7 +26,7 @@ class EditItemActivity : AppCompatActivity() {
             resultIntent.putExtra("ITEM_NAME", originalItem)
             setResult(RESULT_OK, resultIntent)
             finish()
-            Toast.makeText(this, "Update item", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Evento Actualizado", Toast.LENGTH_SHORT).show()
         }
     }
 }

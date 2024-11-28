@@ -1,4 +1,4 @@
-package com.example.efficiency_in_event_management
+package com.example.event_management
 
 import org.junit.Test
 

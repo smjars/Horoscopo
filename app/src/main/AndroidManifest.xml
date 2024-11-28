@@ -8,15 +8,15 @@
             android:allowBackup="true"
             android:dataExtractionRules="@xml/data_extraction_rules"
             android:fullBackupContent="@xml/backup_rules"
-            android:icon="@drawable/ic_logo_app"
+            android:icon="@drawable/logo_app"
             android:label="@string/app_name"
-            android:roundIcon="@drawable/ic_logo_app"
+            android:roundIcon="@drawable/logo_app"
             android:supportsRtl="true"
-            android:theme="@style/Theme.Efficiency_in_Event_Management"
+            android:theme="@style/Theme.Event_Management"
             tools:targetApi="31">
 
             <activity
-                android:name=".activities.MainActivity"
+                android:name="com.example.event_management.activities.MainActivity"
                 android:exported="true">
                 <intent-filter>
                     <action android:name="android.intent.action.MAIN" />
@@ -25,10 +25,10 @@
             </activity>
 
 
-            <activity android:name=".activities.LoginActivity" />
+            <activity android:name="com.example.event_management.activities.LoginActivity" />
 
-            <activity android:name=".activities.CreateItemActivity" />
-            <activity android:name=".activities.EditItemActivity" />
+            <activity android:name="com.example.event_management.activities.CreateItemActivity" />
+            <activity android:name="com.example.event_management.activities.EditItemActivity" />
         </application>
 
 </manifest>

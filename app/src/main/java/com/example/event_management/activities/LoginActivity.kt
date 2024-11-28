@@ -1,4 +1,4 @@
-package com.example.efficiency_in_event_management.activities
+package com.example.event_management.activities
 
 import android.content.Context
 import android.content.Intent
@@ -6,7 +6,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.efficiency_in_event_management.databinding.ActivityLoginBinding
+import com.example.event_management.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 
@@ -53,8 +53,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun isValidCredentials(username: String, password: String): Boolean {
-        // Lógica para validar las credenciales
-        return username == "admin" && password == "admin"
+        // usuario
+        return username == "ruiz" && password == "ruiz"
     }
 
     private fun navigateToMainActivity() {
